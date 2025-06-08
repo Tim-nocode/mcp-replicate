@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.6.0",
+    "@modelcontextprotocol/sdk/server/http.js",
     "replicate": "^1.0.1"
   },
   "devDependencies": {
