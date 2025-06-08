@@ -6,7 +6,7 @@
  */
 
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { HttpServerTransport } from "@modelcontextprotocol/sdk/server/http.js";
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
@@ -167,8 +167,17 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
  * Start the server using stdio transport.
  */
 async function main() {
-  const transport = new StdioServerTransport();
+  const port = Number(process.env.PORT) || 8080;
+  const host = "0.0.0.0";
+
+  const transport = new HttpServerTransport({
+    port,
+    host,
+    path: "/sse"
+  });
+
   await server.connect(transport);
+  console.log(`✅ MCP server listening on http://${host}:${port}/sse`);
 }
 
 main().catch((error) => {
