@@ -5,8 +5,7 @@
  * Provides access to Replicate models and predictions through MCP.
  */
 
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-import { HttpServerTransport } from "@modelcontextprotocol/sdk/server/http.js";
+import { Server, HttpServerTransport } from "@modelcontextprotocol/sdk/server";
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
