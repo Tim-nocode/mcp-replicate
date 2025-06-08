@@ -2,84 +2,26 @@
   "name": "mcp-replicate",
   "version": "0.1.1",
   "description": "Run Replicate models through a simple MCP server interface",
-  "type": "module",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "bin": {
     "mcp-replicate": "build/index.js"
   },
-  "files": [
-    "build",
-    "README.md",
-    "LICENSE"
-  ],
   "scripts": {
     "build": "tsc",
     "postbuild": "chmod +x build/index.js",
     "start": "node build/index.js",
-    "dev": "tsc -w",
-    "test": "vitest",
-    "test:watch": "vitest watch",
-    "test:coverage": "vitest run --coverage",
-    "lint": "biome check .",
-    "format": "biome format . --write",
-    "prepublishOnly": "npm run build"
+    "dev": "tsc -w"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.6.0",
     "replicate": "^1.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.5.3",
     "@types/node": "^20.11.5",
-    "typescript": "^5.3.3",
-    "vitest": "^1.2.1"
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "keywords": [
-    "replicate",
-    "mcp",
-    "machine-learning",
-    "ai",
-    "model-context-protocol"
-  ],
-  "author": "deepfates",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/deepfates/mcp-replicate"
-  },
-  "bugs": {
-    "url": "https://github.com/deepfates/mcp-replicate/issues"
-  },
-  "homepage": "https://github.com/deepfates/mcp-replicate#readme",
-  "publishConfig": {
-    "access": "public"
-  },
-  "vitest": {
-    "include": [
-      "src/**/*.test.ts"
-    ],
-    "exclude": [
-      "node_modules",
-      "build"
-    ],
-    "environment": "node",
-    "testTimeout": 10000,
-    "coverage": {
-      "provider": "v8",
-      "reporter": [
-        "text",
-        "html"
-      ],
-      "exclude": [
-        "node_modules",
-        "build",
-        "**/*.test.ts",
-        "**/*.d.ts"
-      ]
-    }
   }
 }
